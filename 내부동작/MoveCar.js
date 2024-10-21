@@ -1,11 +1,10 @@
-import { RandomNumber } from "./RandomNumber.js";
 import {
   FORWARD_STANDARD,
   MAX_RANDOM_NUMBER_FOR_FORWARD,
   MIN_RANDOM_NUMBER_FOR_FORWARD,
 } from "../Constant/constant.js";
 
-export const MoveCar = (carsArray) => {
+export const MoveCar = (carsArray, RandomNumber) => {
   carsArray.forEach((car) => {
     if (
       RandomNumber(
