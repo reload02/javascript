@@ -1,6 +1,11 @@
 import { printWinner } from "./printWinner.js";
 import { printCarPosition } from "./printCarPosition.js";
-import { FORWARDSTANDARD } from "./Constant/constant.js";
+import { RandomNumber } from "./내부동작/RandomNumber.js";
+import {
+  FORWARD_STANDARD,
+  MAX_RANDOM_NUMBER_FOR_FORWARD,
+  MIN_RANDOM_NUMBER_FOR_FORWARD,
+} from "./Constant/constant.js";
 
 export const playGame = (cars, playTime) => {
   const carsArray = cars.map((car) => {
@@ -8,7 +13,12 @@ export const playGame = (cars, playTime) => {
   });
   for (let i = playTime; i > 0; i--) {
     carsArray.forEach((car) => {
-      if (Math.floor(Math.random() * 10) > FORWARDSTANDARD)
+      if (
+        RandomNumber(
+          MIN_RANDOM_NUMBER_FOR_FORWARD,
+          MAX_RANDOM_NUMBER_FOR_FORWARD
+        ) > FORWARD_STANDARD
+      )
         car.currentPosition++;
       printCarPosition(car);
     });

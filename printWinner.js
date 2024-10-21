@@ -1,4 +1,4 @@
-import { WINNERFORMAT } from "./Constant/constant.js";
+import { WINNER_FORMAT } from "./Constant/constant.js";
 
 export const printWinner = (cars) => {
   let winners = [];
@@ -13,5 +13,5 @@ export const printWinner = (cars) => {
       winners = [car.carName];
     }
   });
-  console.log(WINNERFORMAT + winners);
+  console.log(WINNER_FORMAT + winners);
 };

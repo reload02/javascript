@@ -1,8 +1,7 @@
 import readline from "readline";
 import { checkNameInputError } from "./checkNameInputError.js";
 import { checkPlayTimeInputError } from "./checkPlayTimeInputError.js";
-import { CARNAMESPLITER } from "./Constant/constant.js";
-import { ERRORMESSAGE } from "./Constant/constant.js";
+import { CAR_NAME_SPLITER, ERROR_MESSAGE } from "./Constant/constant.js";
 
 const rl = readline.createInterface({
   input: process.stdin,
@@ -14,10 +13,10 @@ export const askGameSetting = (askCarName, askPlayTime) => {
   return new Promise((resolve) => {
     rl.question(askCarName, (answer) => {
       if (checkNameInputError(answer)) {
-        cars = answer.split(CARNAMESPLITER);
+        cars = answer.split(CAR_NAME_SPLITER);
         askPlayTimeQuestion(askPlayTime, resolve, cars);
       } else {
-        console.log(ERRORMESSAGE);
+        console.log(ERROR_MESSAGE);
         askGameSetting(askCarName, askPlayTime).then(resolve);
       }
     });
@@ -32,7 +31,7 @@ const askPlayTimeQuestion = (askPlayTime, resolve, cars) => {
       resolve([cars, playTime]);
       rl.close();
     } else {
-      console.log(ERRORMESSAGE);
+      console.log(ERROR_MESSAGE);
       console.log(cars);
       askPlayTimeQuestion(askPlayTime, resolve, cars);
     }
