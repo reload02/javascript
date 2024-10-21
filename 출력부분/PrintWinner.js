@@ -1,6 +1,6 @@
-import { WINNER_FORMAT } from "./Constant/constant.js";
+import { WINNER_FORMAT } from "../Constant/constant.js";
 
-export const printWinner = (cars) => {
+export const PrintWinner = (cars) => {
   let winners = [];
   let highScore = 0;
 

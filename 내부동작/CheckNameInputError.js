@@ -1,4 +1,4 @@
-export const checkNameInputError = (nameStr) => {
+export const CheckNameInputError = (nameStr) => {
   if (nameStr.includes(" ")) return false;
   let names = nameStr.split(",");
   if (names.some((str) => str === "")) return false;

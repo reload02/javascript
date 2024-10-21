@@ -1,4 +1,4 @@
-export const checkPlayTimeInputError = (playTime) => {
+export const CheckPlayTimeInputError = (playTime) => {
   if (playTime.includes(" ")) return false;
   playTime = Number(playTime);
   if (!Number.isInteger(playTime)) return false;
