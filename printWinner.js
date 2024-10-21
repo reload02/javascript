@@ -1,3 +1,5 @@
+import { WINNERFORMAT } from "./Constant/constant.js";
+
 export const printWinner = (cars) => {
   let winners = [];
   let highScore = 0;
@@ -11,5 +13,5 @@ export const printWinner = (cars) => {
       winners = [car.carName];
     }
   });
-  console.log("최종 우승자 : " + winners);
+  console.log(WINNERFORMAT + winners);
 };

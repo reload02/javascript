@@ -1,6 +1,8 @@
 import readline from "readline";
 import { checkNameInputError } from "./checkNameInputError.js";
 import { checkPlayTimeInputError } from "./checkPlayTimeInputError.js";
+import { CARNAMESPLITER } from "./Constant/constant.js";
+import { ERRORMESSAGE } from "./Constant/constant.js";
 
 const rl = readline.createInterface({
   input: process.stdin,
@@ -12,11 +14,10 @@ export const askGameSetting = (askCarName, askPlayTime) => {
   return new Promise((resolve) => {
     rl.question(askCarName, (answer) => {
       if (checkNameInputError(answer)) {
-        cars = answer.split(",");
-        console.log("이름이 올바르게 입력되었습니다:", cars);
+        cars = answer.split(CARNAMESPLITER);
         askPlayTimeQuestion(askPlayTime, resolve, cars);
       } else {
-        console.log("[ERROR]");
+        console.log(ERRORMESSAGE);
         askGameSetting(askCarName, askPlayTime).then(resolve);
       }
     });
@@ -28,12 +29,12 @@ const askPlayTimeQuestion = (askPlayTime, resolve, cars) => {
   rl.question(askPlayTime, (answer) => {
     if (checkPlayTimeInputError(answer)) {
       playTime = answer;
-      console.log("숫자가 올바르게 입력되었습니다:", playTime);
       resolve([cars, playTime]);
       rl.close();
     } else {
-      console.log("[ERROR]");
-      askPlayTimeQuestion(askPlayTime, resolve);
+      console.log(ERRORMESSAGE);
+      console.log(cars);
+      askPlayTimeQuestion(askPlayTime, resolve, cars);
     }
   });
 };
