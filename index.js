@@ -1,5 +1,5 @@
-import readline from "readline";
-
+//import { askGameSetting } from "./askGameSetting.js";
+import { playGame } from "./playGame.js";
 const mokCars = ["Acar", "Bcar", "Ccar"];
 const mokPlaytime = 7;
 const mokCarss = [
@@ -11,57 +11,11 @@ const mokCarss = [
 let cars = [];
 let playTime = 0;
 
-const playGame = (cars, playTime) => {
-  const carsArray = cars.map((car) => {
-    return { carName: car, currentPosition: 0 };
-  });
-  for (let i = playTime; i > 0; i--) {
-    carsArray.forEach((car) => {
-      if (Math.floor(Math.random() * 10) > 4) car.currentPosition++;
-      printCarPosition(car);
-    });
-  }
-  printWinner(carsArray);
-};
-
-const printCarPosition = (car) => {
-  let currentStatus = `${car.carName} : ${"-".repeat(car.currentPosition)}`;
-  console.log(currentStatus);
-  return currentStatus;
-};
-
-const printWinner = (cars) => {
-  let winners = [];
-  let highScore = 0;
-
-  cars.map((car) => {
-    if (car.currentPosition === highScore) {
-      winners.push(car.carName);
-    }
-    if (car.currentPosition > highScore) {
-      highScore = car.currentPosition;
-      winners = [car.carName];
-    }
-  });
-  console.log("최종 우승자 : " + winners);
-};
-
-const checkNameInputError = (nameStr) => {
-  if (nameStr.includes(" ")) return false;
-  let names = nameStr.split(",");
-  if (names.some((str) => str === "")) return false;
-  if (names.some((str) => str.length >= 5)) return false;
-  return true;
-};
-
-const checkPlayTimeInputError = (playTime) => {
-  if (playTime.includes(" ")) return false;
-  playTime = Number(playTime);
-  if (!Number.isInteger(playTime)) return false;
-  if (playTime < 1) return false;
-  return true;
-};
 //playGame(mokCars, mokPlaytime);
+
+import readline from "readline";
+import { checkNameInputError } from "./checkNameInputError.js";
+import { checkPlayTimeInputError } from "./checkPlayTimeInputError.js";
 
 const rl = readline.createInterface({
   input: process.stdin,
