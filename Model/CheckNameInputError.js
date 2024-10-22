@@ -5,3 +5,5 @@ export const checkNameInputError = (nameStr) => {
   if (names.some((str) => str.length >= 5)) return false;
   return true;
 };
+
+// 테스트
