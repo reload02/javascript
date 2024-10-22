@@ -9,4 +9,4 @@ askGameSetting(CAR_NAME_QUESTION, PLAY_TIME_QUESTION).then(
   (carsAndPlayTime) => {
     playGame(carsAndPlayTime[0], carsAndPlayTime[1]);
   }
-);
+); //시작
