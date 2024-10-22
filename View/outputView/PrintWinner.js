@@ -1,4 +1,4 @@
-import { WINNER_FORMAT } from "../Constant/constant.js";
+import { WINNER_FORMAT } from "../../Model/Constant/constant.js";
 
 export const printWinner = (cars) => {
   let winners = [];

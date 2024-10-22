@@ -1,4 +1,4 @@
-import { moveCar } from "../내부동작/MoveCar";
+import { moveCar } from "../Model/MoveCar";
 
 const inputCarArray = [{ carName: "carA", currentPosition: 3 }];
 const expectCarArray1 = [{ carName: "carA", currentPosition: 3 }];

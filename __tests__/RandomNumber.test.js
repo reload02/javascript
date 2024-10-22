@@ -1,4 +1,4 @@
-import { randomNumber } from "../내부동작/RandomNumber";
+import { randomNumber } from "../Model/RandomNumber";
 
 test("RandomNumber returns expected mocked value", () => {
   // RandomNumber 함수의 출력을 Mocking하여 고정된 값 반환

@@ -1,7 +1,10 @@
 import readline from "readline";
-import { checkNameInputError } from "../내부동작/CheckNameInputError.js";
-import { checkPlayTimeInputError } from "../내부동작/CheckPlayTimeInputError.js";
-import { CAR_NAME_SPLITER, ERROR_MESSAGE } from "../Constant/constant.js";
+import { checkNameInputError } from "../../Model/CheckNameInputError.js";
+import { checkPlayTimeInputError } from "../../Model/CheckPlayTimeInputError.js";
+import {
+  CAR_NAME_SPLITER,
+  ERROR_MESSAGE,
+} from "../../Model/Constant/constant.js";
 
 const rl = readline.createInterface({
   input: process.stdin,
