@@ -4,7 +4,7 @@ import {
   MIN_RANDOM_NUMBER_FOR_FORWARD,
 } from "../Constant/constant.js";
 
-export const MoveCar = (carsArray, RandomNumber) => {
+export const moveCar = (carsArray, RandomNumber) => {
   carsArray.forEach((car) => {
     if (
       RandomNumber(

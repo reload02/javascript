@@ -1,6 +1,6 @@
 import { CAR_PROGRESS_MARK } from "../Constant/constant.js";
 
-export const PrintCarPosition = (car) => {
+export const printCarPosition = (car) => {
   let currentStatus = `${car.carName} : ${CAR_PROGRESS_MARK.repeat(
     car.currentPosition
   )}`;
