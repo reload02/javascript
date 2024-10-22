@@ -35,7 +35,6 @@ const askPlayTimeQuestion = (askPlayTime, resolve, cars) => {
       rl.close();
     } else {
       console.log(ERROR_MESSAGE);
-      console.log(cars);
       askPlayTimeQuestion(askPlayTime, resolve, cars);
     }
   });
