@@ -2,6 +2,8 @@ import { printWinner } from "../View/outputView/PrintWinner.js";
 import { printCarPosition } from "../View/outputView/PrintCarPosition.js";
 import { moveCar } from "../Model/MoveCar.js";
 import { randomNumber } from "../Model/RandomNumber.js";
+import { getWinner } from "../Model/GetWInner.js";
+import { WINNER_FORMAT } from "../Model/Constant/constant.js";
 
 export const playGame = (cars, playTime) => {
   let carsArray = cars.map((car) => ({ carName: car, currentPosition: 0 }));
@@ -11,5 +13,6 @@ export const playGame = (cars, playTime) => {
       printCarPosition(car);
     });
   }
-  printWinner(carsArray);
+  let winners = getWinner(carsArray);
+  printWinner(winners, WINNER_FORMAT);
 };
