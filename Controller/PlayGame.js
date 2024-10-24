@@ -1,9 +1,9 @@
-import { printWinner } from "../View/outputView/PrintWinner.js";
+import { printWinner } from "../View/outputView/printWinner.js";
 import { printCarPosition } from "../View/outputView/PrintCarPosition.js";
 import { moveCar } from "../Model/MoveCar.js";
 import { randomNumber } from "../Model/RandomNumber.js";
 import { getWinner } from "../Model/GetWInner.js";
-import { WINNER_FORMAT } from "../Model/Constant/constant.js";
+import { WINNER_FORMAT } from "../Model/constant.js";
 
 const playGame = (cars, playTime) => {
   cars = cars.split(",");

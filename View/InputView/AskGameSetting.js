@@ -1,5 +1,5 @@
 import readline from "readline";
-
+import { printError } from "../outputView/printError.js";
 const rl = readline.createInterface({
   input: process.stdin,
   output: process.stdout,
@@ -16,6 +16,19 @@ const askQuestion = (question, errorTypeToCheck) => {
   });
 };
 
+const promptUntilCorrect = async (question, errorTypeToCheck) => {
+  let value = null;
+  while (value === null) {
+    try {
+      const result = await askQuestion(question, errorTypeToCheck);
+      value = result;
+    } catch (error) {
+      printError(error);
+    }
+  }
+  return value;
+};
+
 export const askGameSetting = async (
   question,
   errorTypeToCheck,
@@ -29,17 +42,4 @@ export const askGameSetting = async (
 
   rl.close();
   return setting;
-};
-
-const promptUntilCorrect = async (question, errorTypeToCheck) => {
-  let value = null;
-  while (value === null) {
-    try {
-      const result = await askQuestion(question, errorTypeToCheck);
-      value = result;
-    } catch (error) {
-      console.log(error);
-    }
-  }
-  return value;
 };
