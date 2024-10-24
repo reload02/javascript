@@ -29,16 +29,12 @@ const promptUntilCorrect = async (question, errorTypeToCheck) => {
   return value;
 };
 
-export const askGameSetting = async (
-  question,
-  errorTypeToCheck,
-  question2,
-  errorTypeToCheck2
-) => {
+export const askGameSetting = async (questionAndErrorType) => {
   let setting = [];
-
-  setting.push(await promptUntilCorrect(question, errorTypeToCheck));
-  setting.push(await promptUntilCorrect(question2, errorTypeToCheck2));
+  for (const infomation of questionAndErrorType)
+    setting.push(
+      await promptUntilCorrect(infomation.question, infomation.checkError)
+    );
 
   rl.close();
   return setting;
