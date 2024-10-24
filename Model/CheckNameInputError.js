@@ -6,5 +6,6 @@ export const checkNameInputError = (nameStr) => {
   if (names.some((str) => !str)) return ERROR_MESSAGE_DETAIL.EMPTY;
   if (names.some((str) => str.length >= 5))
     return ERROR_MESSAGE_DETAIL.OVER_5_CHARATERS;
+  if (names.some((str) => names.includes(str))) return "???";
   return true;
 };
