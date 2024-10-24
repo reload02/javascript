@@ -5,5 +5,4 @@ export const printCarPosition = (car) => {
     car.currentPosition
   )}`;
   console.log(currentStatus);
-  return currentStatus;
 };

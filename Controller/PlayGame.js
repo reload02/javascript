@@ -5,7 +5,8 @@ import { randomNumber } from "../Model/RandomNumber.js";
 import { getWinner } from "../Model/GetWInner.js";
 import { WINNER_FORMAT } from "../Model/Constant/constant.js";
 
-export const playGame = (cars, playTime) => {
+const playGame = (cars, playTime) => {
+  cars = cars.split(",");
   let carsArray = cars.map((car) => ({ carName: car, currentPosition: 0 }));
   for (let i = playTime; i > 0; i--) {
     carsArray = moveCar(carsArray, randomNumber);
@@ -16,3 +17,5 @@ export const playGame = (cars, playTime) => {
   let winners = getWinner(carsArray);
   printWinner(winners, WINNER_FORMAT);
 };
+
+export default playGame;
