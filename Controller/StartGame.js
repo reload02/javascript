@@ -1,8 +1,11 @@
-import playGame from "./PlayGame.js";
+import playGame from "./playGame.js";
 import { askGameSetting } from "../View/InputView/askGameSetting.js";
-import { checkNameInputError } from "../Model/CheckNameInputError.js";
-import { checkPlayTimeInputError } from "../Model/CheckPlayTimeInputError.js";
-import { CAR_NAME_QUESTION, PLAY_TIME_QUESTION } from "../Model/constant.js";
+import { checkNameInputError } from "../Model/checkNameInputError.js";
+import { checkPlayTimeInputError } from "../Model/checkPlayTimeInputError.js";
+const CAR_NAME_SPLITER = ",";
+const NAME_OF_CAR_NAME_SPLITTER = "쉼표";
+const CAR_NAME_QUESTION = `경주 할 자동차 이름(이름은 ${NAME_OF_CAR_NAME_SPLITTER}(${CAR_NAME_SPLITER}) 기준으로 구분)`;
+const PLAY_TIME_QUESTION = "시도할 회수";
 
 export const startGame = async () => {
   const [cars, playtime] = await askGameSetting([

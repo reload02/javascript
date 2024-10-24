@@ -1,4 +1,4 @@
-import { ERROR_MESSAGE_DETAIL } from "./constant.js";
+import { ERROR_MESSAGE_DETAIL } from "./errorConstant.js";
 
 export const checkPlayTimeInputError = (playTime) => {
   if (!playTime) return ERROR_MESSAGE_DETAIL.EMPTY;
