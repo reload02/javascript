@@ -1,4 +1,4 @@
-import { updateDescription } from "../../Model/updateDescription";
+import { updateDescription } from "../../Model/updateDescription.js";
 import { clearUserInput } from "../InputView/clearUserInput.js";
 
 const ERROR_MESSAGE = "[ERROR] : ";

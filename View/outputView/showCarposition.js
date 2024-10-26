@@ -18,11 +18,8 @@ export const showCarPosition = async (carsArray, playTime) => {
       });
       document.body.innerHTML = `<pre>${currentstatus}</pre>`;
       if (leftTime === 0) {
-        document.body.innerHTML = `<pre>${currentstatus}</pre>`;
         clearInterval(intervalId);
-        setTimeout(() => {
-          resolve(carsArray);
-        }, 0);
+        setTimeout(() => resolve(carsArray), 0);
       }
     }, 500);
   });

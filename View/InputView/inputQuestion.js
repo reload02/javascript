@@ -1,3 +1,5 @@
+import { displayByInput } from "../outputView/displayByInput.js";
+
 export const inputQuestion = (question, errorTypeToCheck) => {
   document.getElementById("userInput").placeholder = question;
   return new Promise((resolve, reject) => {
