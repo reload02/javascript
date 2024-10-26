@@ -1,4 +1,4 @@
-import { rl } from "./askQuestion.js";
+//import { rl } from "./askQuestion.js";
 import { promptUntilCorrect } from "../../Model/promptUntilCorrect.js";
 
 export const askGameSetting = async (questionWithErrorCallBack) => {
@@ -8,6 +8,6 @@ export const askGameSetting = async (questionWithErrorCallBack) => {
       await promptUntilCorrect(infomation.question, infomation.checkError)
     );
 
-  rl.close();
+  //  rl.close();
   return setting;
 };
