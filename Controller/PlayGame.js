@@ -1,5 +1,5 @@
 import { printWinner } from "../View/outputView/printWinner.js";
-import { printCarPosition } from "../View/outputView/printCarPosition.js";
+//import { printCarPosition } from "../View/outputView/printCarPosition.js";
 import { getWinner } from "../Model/getWInner.js";
 import { showCarPosition } from "../View/outputView/showCarposition.js";
 import { showWinner } from "../View/outputView/showWinner.js";
