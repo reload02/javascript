@@ -1,20 +1,32 @@
+const ERROR_MESSAGE = "[ERROR] : ";
+
 export const inputQuestion = (question, errorTypeToCheck) => {
   document.getElementById("userInput").placeholder = question;
   return new Promise((resolve, reject) => {
     document.getElementById("submitButton").addEventListener("click", () => {
       const inputValue = document.getElementById("userInput").value;
-      //document.getElementById("userInput").value = "";
       console.log(`Input Value: ${inputValue}`);
       const resultElement = document.getElementById("result");
+      resultElement.style.color = "black";
+      resultElement.textContent = "정상적인 입력인지 확인중...";
       if (errorTypeToCheck(inputValue) === true) {
-        resultElement.textContent = `Success! You entered: ${inputValue}`;
-        resultElement.style.color = "green"; // 성공 시 텍스트 초록색으로 변경
-        document.getElementById("userInput").placeholder = question;
-        resolve(inputValue);
+        setTimeout(() => {
+          resultElement.textContent = "정상 적으로 입력이 완료되었습니다.";
+          resultElement.style.color = "green";
+          document.getElementById("userInput").value = "";
+        }, 1000);
+        setTimeout(() => {
+          resultElement.textContent = "";
+          document.getElementById("userInput").placeholder = question;
+          resolve(inputValue);
+        }, 2000);
       } else {
-        resultElement.textContent = "Error: Input cannot be empty!";
-        resultElement.style.color = "red"; // 오류 시 텍스트 빨간색으로 변경
-        reject(errorTypeToCheck(inputValue));
+        setTimeout(() => {
+          resultElement.textContent =
+            ERROR_MESSAGE + errorTypeToCheck(inputValue);
+          resultElement.style.color = "red";
+          reject(errorTypeToCheck(inputValue));
+        }, 1000);
       }
     });
   });
