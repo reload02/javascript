@@ -3,28 +3,27 @@ import { randomNumber } from "../../Model/randomNumber.js";
 
 const CAR_PROGRESS_MARK = "■";
 
-export const showCarPosition = (carsArray, playTime) => {
+export const showCarPosition = async (carsArray, playTime) => {
+  let leftTime = Number(playTime);
   return new Promise((resolve) => {
     let intervalId = setInterval(() => {
-      // console.log(carsArray[0].currentPosition);
-      // console.log(carsArray[1].currentPosition);
-      // console.log(carsArray[2].currentPosition); 질문용
-      //console.log(carsArray);
-      let currentstatus = `${playTime > 0 ? playTime : 0}회 남았습니다.\n`;
+      leftTime--;
+      carsArray = moveCar([...carsArray], randomNumber);
+      let currentstatus = `${leftTime}회 남았습니다.\n`;
       carsArray.forEach((car) => {
         currentstatus =
           currentstatus +
           "\n" +
           `${car.carName} : ${CAR_PROGRESS_MARK.repeat(car.currentPosition)}`;
       });
-      carsArray = moveCar(carsArray, randomNumber);
       document.body.innerHTML = `<pre>${currentstatus}</pre>`;
-      playTime--;
-      if (playTime < 0) {
-        clearInterval(intervalId);
+      if (leftTime === 0) {
         document.body.innerHTML = `<pre>${currentstatus}</pre>`;
-        resolve();
+        clearInterval(intervalId);
+        setTimeout(() => {
+          resolve(carsArray);
+        }, 0);
       }
-    }, 100);
+    }, 500);
   });
 };

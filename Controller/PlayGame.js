@@ -8,10 +8,10 @@ const playGame = async (cars, playTime) => {
   cars = cars.split(",");
   let carsArray = cars.map((car) => ({ carName: car, currentPosition: 0 }));
   //printCarPosition(carsArray, playTime);
-  await showCarPosition(carsArray, playTime);
-  let winners = await getWinner(carsArray);
-  //printWinner(winners);
-  await showWinner(winners);
+  carsArray = await showCarPosition(carsArray, playTime);
+  let winners = getWinner(carsArray);
+  printWinner(winners);
+  showWinner(winners);
 };
 
 export default playGame;
