@@ -7,7 +7,7 @@ export const askGameSetting = async (questionWithErrorCallBack) => {
     setting.push(
       await promptUntilCorrect(infomation.question, infomation.checkError)
     );
-
+  document.body.innerHTML = "<div>로딩중...</div?";
   //  rl.close();
   return setting;
 };

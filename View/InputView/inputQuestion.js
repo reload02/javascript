@@ -14,10 +14,11 @@ export const inputQuestion = (question, errorTypeToCheck) => {
           resultElement.textContent = "정상 적으로 입력이 완료되었습니다.";
           resultElement.style.color = "green";
           document.getElementById("userInput").value = "";
+          document.getElementById("userInput").placeholder = "";
         }, 1000);
         setTimeout(() => {
           resultElement.textContent = "";
-          document.getElementById("userInput").placeholder = question;
+
           resolve(inputValue);
         }, 2000);
       } else {
