@@ -10,7 +10,7 @@ export const promptUntilCorrect = async (question, errorTypeToCheck) => {
       const result = await inputQuestion(question, errorTypeToCheck);
       value = result;
     } catch (error) {
-      printError(error);
+      //printError(error);
     }
   }
   return value;
