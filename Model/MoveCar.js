@@ -3,7 +3,8 @@ const MAX_RANDOM_NUMBER_FOR_FORWARD = 10;
 const FORWARD_STANDARD = 4;
 
 export const moveCar = (carsArray, RandomNumber) => {
-  carsArray.forEach((car) => {
+  const newCars = [...carsArray];
+  newCars.forEach((car) => {
     if (
       RandomNumber(
         MIN_RANDOM_NUMBER_FOR_FORWARD,
@@ -12,5 +13,5 @@ export const moveCar = (carsArray, RandomNumber) => {
     )
       car.currentPosition++;
   });
-  return carsArray;
+  return newCars;
 };
