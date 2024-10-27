@@ -1,9 +1,11 @@
-import { printWinner } from "../View/outputView/PrintWinner.js";
-import { printCarPosition } from "../View/outputView/PrintCarPosition.js";
-import { moveCar } from "../Model/MoveCar.js";
-import { randomNumber } from "../Model/RandomNumber.js";
+import { printWinner } from "../View/outputView/printWinner.js";
+import { printCarPosition } from "../View/outputView/printCarPosition.js";
+import { moveCar } from "../Model/moveCar.js";
+import { randomNumber } from "../Model/randomNumber.js";
+import { getWinner } from "../Model/getWInner.js";
 
-export const playGame = (cars, playTime) => {
+const playGame = (cars, playTime) => {
+  cars = cars.split(",");
   let carsArray = cars.map((car) => ({ carName: car, currentPosition: 0 }));
   for (let i = playTime; i > 0; i--) {
     carsArray = moveCar(carsArray, randomNumber);
@@ -11,5 +13,8 @@ export const playGame = (cars, playTime) => {
       printCarPosition(car);
     });
   }
-  printWinner(carsArray);
+  let winners = getWinner(carsArray);
+  printWinner(winners);
 };
+
+export default playGame;

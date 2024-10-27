@@ -1,8 +1,6 @@
-import {
-  FORWARD_STANDARD,
-  MAX_RANDOM_NUMBER_FOR_FORWARD,
-  MIN_RANDOM_NUMBER_FOR_FORWARD,
-} from "./Constant/constant.js";
+const MIN_RANDOM_NUMBER_FOR_FORWARD = 0;
+const MAX_RANDOM_NUMBER_FOR_FORWARD = 10;
+const FORWARD_STANDARD = 4;
 
 export const moveCar = (carsArray, RandomNumber) => {
   carsArray.forEach((car) => {
