@@ -8,6 +8,8 @@ export const promptUntilCorrect = async (question, errorTypeToCheck) => {
     try {
       //const result = await askQuestion(question, errorTypeToCheck);
       const result = await inputQuestion(question, errorTypeToCheck);
+      //const result = await askQuestion(question, errorTypeToCheck);
+      const result = await inputQuestion(question, errorTypeToCheck);
       value = result;
     } catch (error) {
       //printError(error);
